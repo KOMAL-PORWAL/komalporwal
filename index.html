@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="site-title">Your Name</h1>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero container">
+    <div class="hero-text">
+      <h2>Hi, I’m <span>Your Name</span></h2>
+      <p>I build robotics systems, embedded hardware, and autonomous software.</p>
+      <p><a class="btn" href="#projects">See My Work</a></p>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/profile.jpg" alt="Profile Photo">
+    </div>
+  </section>
+
+  <section id="about" class="container section about">
+    <h2>About Me</h2>
+    <p>I’m a robotics / embedded systems engineer … (write your short bio here).</p>
+  </section>
+
+  <section id="projects" class="container section projects">
+    <h2>Projects</h2>
+    <div id="projects-grid" class="grid">
+      <!-- JS will inject project cards here -->
+      <div class="card">Loading projects…</div>
+    </div>
+  </section>
+
+  <section id="skills" class="container section skills">
+    <h2>Skills</h2>
+    <ul class="skill-list">
+      <li>ROS2</li>
+      <li>Python</li>
+      <li>C++</li>
+      <li>FPGA / Embedded</li>
+      <li>Machine Learning</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="container section contact">
+    <h2>Contact</h2>
+    <p>You can reach me at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub</a> •
+      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> Your Name</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
