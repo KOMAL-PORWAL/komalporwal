@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Roboto', Arial, sans-serif;
@@ -25,6 +26,24 @@
             letter-spacing: 1px;
             margin-bottom: 12px;
         }
+        .resume-btn {
+            display: inline-block;
+            margin: 0 auto 28px;
+            padding: 12px 26px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(79,70,229,0.25);
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .resume-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(79,70,229,0.36);
+        }
+
         .subtitle {
             text-align: center;
             color: #4f51b6;
@@ -59,6 +78,7 @@
             color: #fbbf24;
             border-bottom: 2px solid #fbbf24;
         }
+
         /* Profile Pic */
         .profile-img {
             width: 156px;
@@ -67,8 +87,7 @@
             display: block;
             margin: 0 auto 21px;
             object-fit: cover;
-            object-position: cover; /* <-- moves image upward */
-            object-position: center 90%; /* shift the visible part UP */
+            object-position: center 90%;
             border: 5px solid #fbbf24;
             box-shadow: 0 4px 16px rgba(251,191,36,0.13);
         }
@@ -91,6 +110,7 @@
             margin-bottom: 6px;
             color: #4244a5;
         }
+
         .card a {
             color: #4f46e5;
             text-decoration: none;
@@ -102,97 +122,73 @@
             color: #c026d3;
             border-bottom: 1px solid #fbbf24;
         }
+
         .project-img {
-    width: 100%;
-    max-width: 380px;
-    border-radius: 9px;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 24px rgba(77,110,242,0.07);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 0.18s;
-}
-.project-card:hover .project-img {
-    transform: scale(1.045) rotate(-1.5deg);
-    box-shadow: 0 6px 28px rgba(251,191,36,0.19);
-}
-.project-btn,
-.project-btn:link,
-.project-btn:visited,
-.project-btn:active {
-    background: linear-gradient(90deg, #4f46e5 50%, #ffffff 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    color: #4f46e5 !important; /* purple text */
-    font-weight: 600;
-    border-radius: 6px;
-    text-decoration: none;
-    box-shadow: 0 2px 12px rgba(51,65,85,0.09);
-    transition: background-position 1.5s ease, color 1.5s ease, transform 0.16s, box-shadow 0.16s;
-    border: 2px solid #4f46e5;
-}
+            width: 100%;
+            max-width: 380px;
+            border-radius: 9px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 24px rgba(77,110,242,0.07);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.18s;
+        }
+        .project-card:hover .project-img {
+            transform: scale(1.045) rotate(-1.5deg);
+            box-shadow: 0 6px 28px rgba(251,191,36,0.19);
+        }
 
-.project-btn:hover {
-    background-position: left bottom !important;
-    color: #ffffff !important; /* white text */
-    transform: translateY(-3px) scale(1.09);
-    box-shadow: 0 12px 28px rgba(79,70,229,0.4);
-}
+        .project-btn {
+            background: linear-gradient(90deg, #4f46e5 50%, #ffffff 50%);
+            background-size: 200% 100%;
+            background-position: right bottom;
+            color: #4f46e5 !important;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #4f46e5;
+            display: inline-block;
+            transition: background-position 1.5s ease, color 1.5s ease, transform 0.16s, box-shadow 0.16s;
+        }
+        .project-btn:hover {
+            background-position: left bottom !important;
+            color: #ffffff !important;
+            transform: translateY(-3px) scale(1.09);
+            box-shadow: 0 12px 28px rgba(79,70,229,0.4);
+        }
 
+        ul {
+            margin-left: 18px;
+            margin-bottom: 12px;
+        }
 
-
-ul {
-    margin-left: 18px;
-    margin-bottom: 12px;
-}
         .contact-icons {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 15px;
-}
-.icon-btn {
-    background: #f1f5f9;
-    border-radius: 50%;
-    width: 58px;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(51,65,85,0.08);
-    transition: box-shadow 0.14s, background 0.14s, transform 0.12s;
-    border: none;
-    outline: none;
-    text-decoration: none;
-}
-.icon-btn:hover {
-    background: #fbbf24;
-    box-shadow: 0 6px 24px rgba(251,191,36,0.14);
-    transform: translateY(-2px) scale(1.11);
-}
-.icon-btn svg {
-    display: block;
-}
-
-
-        /* Section headers */
-        h2 {
-            color: #334155;
-            margin-top: 0;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 15px;
         }
-        /* Responsive Design */
-        @media (max-width: 700px) {
-            .container {
-                padding: 22px 3vw;
-            }
-            .card {
-                padding: 16px 7vw;
-            }
-            nav ul li {
-                margin: 0 10px;
-            }
+        .icon-btn {
+            background: #f1f5f9;
+            border-radius: 50%;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(51,65,85,0.08);
+            transition: box-shadow 0.14s, background 0.14s, transform 0.12s;
+            border: none;
+            text-decoration: none;
         }
+        .icon-btn:hover {
+            background: #fbbf24;
+            box-shadow: 0 6px 24px rgba(251,191,36,0.14);
+            transform: translateY(-2px) scale(1.11);
+        }
+
         .footer {
             text-align: center;
             padding: 26px 8px;
@@ -204,6 +200,7 @@ ul {
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -213,12 +210,22 @@ ul {
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
     <div class="container">
+
         <!-- Profile -->
         <img src="profile.jpg" class="profile-img" alt="Komal Porwal Profile">
+
         <h1>KOMAL PORWAL</h1>
-        <p class="subtitle">Robotics&nbsp;• Embedded Systems&nbsp;• AI/ML&nbsp;• Control Systems&nbsp• Power Systems&nbsp</p>
-        <!-- About Section -->
+
+        <!-- ⭐ RESUME BUTTON ADDED HERE ⭐ -->
+        <div style="text-align:center;">
+            <a class="resume-btn" href="YOUR_RESUME_LINK.pdf" target="_blank">📄 View Resume</a>
+        </div>
+
+        <p class="subtitle">Robotics • Embedded Systems • AI/ML • Control Systems • Power Systems</p>
+
+        <!-- ABOUT SECTION -->
         <div class="card" id="about">
             <h2>About Me</h2>
             <p>
@@ -228,113 +235,86 @@ ul {
                 <li><strong>Robotics & Automation:</strong> ROS2, SLAM, sensor fusion, control systems</li>
                 <li><strong>Aerospace & UAV Systems:</strong> flight dynamics, GNC, simulation</li>
                 <li><strong>Embedded Systems:</strong> microcontrollers, FPGA basics, real-time systems</li>
-                <li><strong>AI/ML & Computer Vision:</strong> detection, tracking, agricultural field analysis</li>
+                <li><strong>AI/ML & Computer Vision:</strong> detection, tracking, agricultural analysis</li>
                 <li><strong>Mechatronics & Prototyping:</strong> CAD, 3D printing, hardware integration</li>
                 <li><strong>Autonomous Systems:</strong> motion planning, optimization, reliability</li>
-                <li><strong>Scientific & Deep Tech R&D:</strong> LabVIEW, SIMION, data analysis</li>
+                <li><strong>Scientific R&D:</strong> LabVIEW, SIMION, data analysis</li>
             </ul>
         </div>
-        <!-- Projects Section -->
-       <!-- Autonomous Drone for Agriculture -->
-<div id="projects">
-<div class="card project-card">
-    <img src="drone_vision.jpg" alt="Autonomous UAV Agriculture" class="project-img">
-    <h3 class="project-title">🔹 Autonomous Drone for Agriculture</h3>
-    <ul>
-        <li>Developed computer vision-based system for precision fertilizer dispensing over crops.</li>
-        <li>Achieved robust in-field stabilization and demonstrated reliable real-time operation.</li>
-    </ul>
-    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Project</a>
-</div>
 
-<!-- Fault Detection in Power Systems -->
-<div class="card project-card">
-    <img src="ai_ml_model.jpg" alt="ML Fault Prediction" class="project-img">
-    <h3 class="project-title">🔹 Fault Detection in Power Systems</h3>
-    <ul>
-        <li>Implemented DT, SVM, and ANN models to predict faults with 95% accuracy.</li>
-        <li>Enabled rapid diagnosis for improved reliability in complex power networks.</li>
-    </ul>
-    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Code</a>
-</div>
-<!-- FPGA-Based Processing Electronics for a Neutral and Ion Mass Spectrometer (NIMS) for Planetary Exploration Missions. -->
-<div class="card project-card">
-    <img src="ai_ml_model.jpg" alt="ML Fault Prediction" class="project-img">
-    <h3 class="project-title">🔹 FPGA-Based Processing Electronics for a Neutral and Ion Mass Spectrometer (NIMS) for Planetary Exploration Missions</h3>
-    <ul>
-        <li>Designed sensor-conditioning circuits that reduced noise by 40% and improved reliability.</li>
-        <li>Developed FPGA real-time control systems, boosting spectrometer data throughput by 30%.</li>
-        <li>Created LabVIEW interfaces and automated diagnostic tools for testing.</li>
-    </ul>
-    <a href="https://github.com/YOUR_GITHUB_LINK" target="_blank" class="project-btn">View Code</a>
-</div>
+        <!-- PROJECTS SECTION -->
+        <div id="projects">
 
-<!-- Autonomous Vehicle (AWS DeepRacer) -->
-<div class="card project-card">
-    <img src="deepracer_robot.jpg" alt="AWS DeepRacer Autonomous Car" class="project-img">
-    <h3 class="project-title">🔹 Autonomous Vehicle using SLAM & RL</h3>
-    <ul>
-        <li>Designed full pipeline: perception (LiDAR), mapping, planning, and control (PID & RL).</li>
-        <li>Integrated ROS2 for robust hallway navigation and obstacle avoidance on AWS DeepRacer robot.</li>
-    </ul>
-    <a href="https://github.com/KOMAL-PORWAL/rainbow_road_rage" target="_blank" class="project-btn">View Repository</a>
-</div>
-</div>
+            <!-- DRONE -->
+            <div class="card project-card">
+                <img src="drone_vision.jpg" class="project-img">
+                <h3 class="project-title">🔹 Autonomous Drone for Agriculture</h3>
+                <ul>
+                    <li>Computer vision–based fertilizer dispensing.</li>
+                    <li>Achieved stable autonomous operation in field tests.</li>
+                </ul>
+                <a class="project-btn" target="_blank" href="https://github.com/YOUR_GITHUB_LINK">View Project</a>
+            </div>
 
-        <!-- Contact -->
-<div class="card" id="contact">
-    <h2>Contact</h2>
-    <div class="contact-icons">
-        <a href="mailto:komal.porwal@colorado.edu" class="icon-btn" aria-label="Email">
-            <!-- Mail SVG -->
-            <svg width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="22" height="14" rx="3" fill="#e2e8f0"/><path d="M5.6 9.06l8.4 7.12 8.4-7.12" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://github.com/Komal-Porwal" class="icon-btn" target="_blank" aria-label="GitHub">
-            <!-- GitHub SVG -->
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#334155" d="M12 1.75C6.272 1.75 1.25 6.813 1.25 12.625c0 4.013 2.542 7.418 6.262 8.626.44.084.601-.193.601-.43 0-.213-.008-.777-.012-1.525-2.548.561-3.087-1.25-3.087-1.25-.402-1.045-.983-1.323-.983-1.323-.806-.565.062-.554.062-.554.891.063 1.36.934 1.36.934.792 1.389 2.08.988 2.587.756.08-.583.309-.988.563-1.215-2.035-.24-4.18-1.008-4.18-4.484 0-.99.349-1.797.92-2.431-.094-.243-.399-1.218.087-2.543 0 0 .797-.262 2.614.93.756-.213 1.566-.319 2.372-.323.804.004 1.614.11 2.372.323 1.815-1.192 2.612-.93 2.612-.93.488 1.325.183 2.3.09 2.543.573.634.92 1.441.92 2.431 0 3.484-2.149 4.242-4.197 4.48.32.283.604.848.604 1.71 0 1.236-.011 2.233-.011 2.537 0 .24.159.517.608.429C20.212 20.043 22.75 16.637 22.75 12.625 22.75 6.813 17.728 1.75 12 1.75z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/komal-porwal-967138219/" class="icon-btn" target="_blank" aria-label="LinkedIn">
-            <!-- Clean LinkedIn SVG -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#0A66C2"/>
-                <path d="M7.1 17.5V9.6H5V17.5H7.1ZM6.05 8.55C6.78 8.55 7.37 7.96 7.37 7.23C7.37 6.51 6.78 5.92 6.05 5.92C5.32 5.92 4.73 6.51 4.73 7.23C4.73 7.96 5.32 8.55 6.05 8.55ZM18 17.5V12.9C18 10.6 16.77 9.5 15.02 9.5C13.79 9.5 12.96 10.17 12.6 10.78H12.57V9.6H10.5V17.5H12.6V13.4C12.6 12.3 13.27 11.6 14.27 11.6C15.24 11.6 15.7 12.27 15.7 13.35V17.5H18Z" fill="white"/>
-            </svg>
-        </a>
+            <!-- POWER SYSTEM FAULT -->
+            <div class="card project-card">
+                <img src="ai_ml_model.jpg" class="project-img">
+                <h3 class="project-title">🔹 Fault Detection in Power Systems</h3>
+                <ul>
+                    <li>Built DT, SVM, ANN models with 95% accuracy.</li>
+                    <li>Improved reliability of complex power grids.</li>
+                </ul>
+                <a class="project-btn" target="_blank" href="https://github.com/YOUR_GITHUB_LINK">View Code</a>
+            </div>
+
+            <!-- FPGA -->
+            <div class="card project-card">
+                <img src="ai_ml_model.jpg" class="project-img">
+                <h3 class="project-title">🔹 FPGA-Based Spectrometer Processing Electronics</h3>
+                <ul>
+                    <li>Reduced noise by 40% using optimized sensor electronics.</li>
+                    <li>Improved FPGA throughput by 30% for planetary exploration.</li>
+                </ul>
+                <a class="project-btn" target="_blank" href="https://github.com/YOUR_GITHUB_LINK">View Code</a>
+            </div>
+
+            <!-- DeepRacer -->
+            <div class="card project-card">
+                <img src="deepracer_robot.jpg" class="project-img">
+                <h3 class="project-title">🔹 Autonomous Vehicle Using SLAM & RL</h3>
+                <ul>
+                    <li>Pipeline design: LiDAR → SLAM → Path Planning → Control.</li>
+                    <li>Implemented on AWS DeepRacer robot with ROS2.</li>
+                </ul>
+                <a class="project-btn" target="_blank" href="https://github.com/KOMAL-PORWAL/rainbow_road_rage">View Repository</a>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="card" id="contact">
+            <h2>Contact</h2>
+
+            <div class="contact-icons">
+                <a href="mailto:komal.porwal@colorado.edu" class="icon-btn">
+                    <svg width="28" height="28" fill="none"><rect x="3" y="7" width="22" height="14" rx="3" fill="#e2e8f0"/><path d="M5.6 9.06l8.4 7.12 8.4-7.12" stroke="#334155" stroke-width="2"/></svg>
+                </a>
+
+                <a href="https://github.com/Komal-Porwal" target="_blank" class="icon-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#334155" d="M12 1.75C6.272 1.75 1.25 6.813 1.25 12.625c0 4.013 2.542 7.418 6.262 8.626.44.084.601-.193.601-.43v-1.525c-2.548.561-3.087-1.25-3.087-1.25-.402-1.045-.983-1.323-.983-1.323-.806-.565.062-.554.062-.554.891.063 1.36.934 1.36.934.792 1.389 2.08.988 2.587.756.08-.583.309-.988.563-1.215-2.035-.24-4.18-1.008-4.18-4.484 0-.99.349-1.797.92-2.431-.094-.243-.399-1.218.087-2.543 0 0 .797-.262 2.614.93.756-.213 1.566-.319 2.372-.323.804.004 1.614.11 2.372.323 1.815-1.192 2.612-.93 2.612-.93.488 1.325.183 2.3.09 2.543.573.634.92 1.441.93 2.431 0 3.484-2.149 4.242-4.197 4.48.32.283.604.848.604 1.71V21.25c0 .24.159.517.608.429C20.212 20.043 22.75 16.637 22.75 12.625 22.75 6.813 17.728 1.75 12 1.75z"/></svg>
+                </a>
+
+                <a href="https://linkedin.com/in/komal-porwal-967138219/" target="_blank" class="icon-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7.1 17.5V9.6H5V17.5H7.1ZM6.05 8.55C6.78 8.55 7.37 7.96 7.37 7.23C7.37 6.51 6.78 5.92 6.05 5.92C5.32 5.92 4.73 6.51 4.73 7.23C4.73 7.96 5.32 8.55 6.05 8.55ZM18 17.5V12.9C18 10.6 16.77 9.5 15.02 9.5C13.79 9.5 12.96 10.17 12.6 10.78H12.57V9.6H10.5V17.5H12.6V13.4C12.6 12.3 13.27 11.6 14.27 11.6C15.24 11.6 15.7 12.27 15.7 13.35V17.5H18Z" fill="white"/></svg>
+                </a>
+            </div>
+        </div>
 
     </div>
-</div>
-</div>
 
     <!-- Footer -->
     <div class="footer">
         © 2025 Komal Porwal — All Rights Reserved
     </div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
