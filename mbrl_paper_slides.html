@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBRL for Control Slides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .slides-container {
+            width: 100%;
+            max-width: 1100px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            padding: 60px 50px;
+            min-height: 650px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Slide 1: Title */
+        .slide1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .slide1 h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .slide1 .subtitle {
+            font-size: 26px;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+        
+        .key-insight {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            margin: 30px 0;
+            border-left: 5px solid #fff;
+        }
+        
+        .key-insight p {
+            font-size: 16px;
+            margin: 12px 0;
+            line-height: 1.7;
+        }
+        
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .comp-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 18px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .comp-item strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        /* Slide 2: Approach */
+        .slide2 {
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e9ecef 100%);
+            color: #333;
+        }
+        
+        .slide2 h1 {
+            font-size: 44px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .approach-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .approach-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+        }
+        
+        .approach-box h3 {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .approach-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            margin: 10px 0;
+        }
+        
+        .equation {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        /* Slide 3: Results */
+        .slide3 {
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e9ecef 100%);
+            color: #333;
+        }
+        
+        .slide3 h1 {
+            font-size: 44px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .benchmark-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .benchmark-section h3 {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .result-item {
+            background: #f0f4ff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .result-item strong {
+            color: #667eea;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        
+        .metric-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .metric-value {
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        /* Slide 4: Challenges & Conclusions */
+        .slide4 {
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e9ecef 100%);
+            color: #333;
+        }
+        
+        .slide4 h1 {
+            font-size: 44px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .challenge-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .challenge-box h3 {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .challenge-list {
+            list-style: none;
+        }
+        
+        .challenge-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .challenge-list li:before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .conclusion-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            grid-column: 1 / -1;
+            border-left: 5px solid #667eea;
+        }
+        
+        .conclusion-box h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .conclusion-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        /* Slide 5: Future Work */
+        .slide5 {
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e9ecef 100%);
+            color: #333;
+        }
+        
+        .slide5 h1 {
+            font-size: 44px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .approach-recommendation {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .approach-recommendation h3 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation-item {
+            background: #f0f4ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .recommendation-item strong {
+            color: #667eea;
+        }
+        
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #f0f0f0;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+        <!-- Slide 1: Title & Overview -->
+        <div class="slide slide1 active">
+            <div>
+                <h1>🤖 Model-Based Reinforcement Learning</h1>
+                <p class="subtitle">For Control in MuJoCo Environments</p>
+            </div>
+            
+            <div class="key-insight">
+                <p><strong>Core Challenge:</strong> Can we learn control policies using explicit dynamics models instead of directly learning from experience?</p>
+                <p><strong>Key Promise:</strong> Sample efficiency - using fewer interactions with the environment to learn good policies</p>
+            </div>
+            
+            <div class="comparison-box">
+                <div class="comp-item">
+                    <strong>🧠 MBRL Approach</strong>
+                    Learns explicit dynamics model, then uses it for planning with MPC
+                </div>
+                <div class="comp-item">
+                    <strong>📊 Model-Free Approach</strong>
+                    Directly optimizes policies/value functions from raw experience
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Solution Approach -->
+        <div class="slide slide2">
+            <h1>Solution Approach: MBRL & MPC</h1>
+            
+            <div class="approach-container">
+                <div class="approach-box">
+                    <h3>🎯 Dynamics Learning</h3>
+                    <p>Train neural networks to predict state changes:</p>
+                    <div class="equation">
+                        ŝ_t+1 = s_t + f_θ(s_t, a_t)
+                    </div>
+                    <p>Iterative procedure: random trajectories → train model → collect improved data with MPC → retrain</p>
+                </div>
+                
+                <div class="approach-box">
+                    <h3>🎮 Model Predictive Control (MPC)</h3>
+                    <p>Solve action optimization problem:</p>
+                    <div class="equation">
+                        (a_t,...,a_t+H-1) = argmax Σ r(ŝ_t+k, a_t+k)
+                    </div>
+                    <p>Uses gradient-based optimization (vs. random shooting/CEM)</p>
+                </div>
+                
+                <div class="approach-box">
+                    <h3>🔄 Imitation Learning</h3>
+                    <p>Train policy via behavior cloning on MPC trajectories:</p>
+                    <div class="equation">
+                        min Σ ||π_θ(s_t) - a_t||²
+                    </div>
+                    <p>Warm-start PPO with learned policy weights</p>
+                </div>
+                
+                <div class="approach-box">
+                    <h3>🛠️ Key Design Choices</h3>
+                    <p><strong>Gradient-based MPC:</strong> Much faster than random shooting/CEM for harder tasks</p>
+                    <p><strong>Ensembles:</strong> Reduced epistemic uncertainty with minor improvements</p>
+                    <p><strong>Probabilistic networks:</strong> Minimal benefit observed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Experimental Results -->
+        <div class="slide slide3">
+            <h1>Experimental Results on MuJoCo Benchmarks</h1>
+            
+            <div class="results-grid">
+                <div class="benchmark-section">
+                    <h3>✅ Pendulum (Easy)</h3>
+                    <div class="result-item">
+                        <strong>Task:</strong> Balance inverted pendulum for 1000 steps
+                    </div>
+                    <div class="result-item">
+                        <strong>MBRL Result:</strong> Solves significantly faster than PPO
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Sample Efficiency:</span>
+                        <span class="metric-value">~30x fewer steps</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Horizon:</span>
+                        <span class="metric-value">H=1 to H=10</span>
+                    </div>
+                </div>
+                
+                <div class="benchmark-section">
+                    <h3>⚠️ Hopper (Moderate)</h3>
+                    <div class="result-item">
+                        <strong>Task:</strong> One-legged robot locomotion
+                    </div>
+                    <div class="result-item">
+                        <strong>MBRL Result:</strong> Plateaus at 200-300 reward after 1000 steps
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">PPO Final:</span>
+                        <span class="metric-value">>1000 in 500k steps</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Random Baseline:</span>
+                        <span class="metric-value">16 reward</span>
+                    </div>
+                </div>
+                
+                <div class="benchmark-section">
+                    <h3>❌ Ant (Hard)</h3>
+                    <div class="result-item">
+                        <strong>Task:</strong> Four-legged robot forward locomotion
+                    </div>
+                    <div class="result-item">
+                        <strong>MBRL Result:</strong> Gets stuck in local optima (minimize actions)
+                    </div>
+                    <div class="result-item">
+                        <strong>Issue:</strong> Same problems as Hopper, but higher dimensionality (8 actions, 27 observations)
+                    </div>
+                </div>
+                
+                <div class="benchmark-section">
+                    <h3>📊 Warm-Started PPO</h3>
+                    <div class="result-item">
+                        <strong>Approach:</strong> Clone MPC trajectories, warm-start PPO
+                    </div>
+                    <div class="result-item">
+                        <strong>Result:</strong> Initial advantage but worse long-term performance
+                    </div>
+                    <div class="result-item">
+                        <strong>Reason:</strong> Early warm-start constrains exploration space
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Challenges & Root Causes -->
+        <div class="slide slide4">
+            <h1>Key Challenges & Root Causes</h1>
+            
+            <div class="challenges-grid">
+                <div class="challenge-box">
+                    <h3>🎯 Dynamics Model Limitations</h3>
+                    <ul class="challenge-list">
+                        <li>Model learns dynamics near initial state well</li>
+                        <li>Prediction error increases dramatically over longer horizons</li>
+                        <li>Fails for states far from training distribution</li>
+                        <li>MPC relies on accurate long-horizon predictions</li>
+                    </ul>
+                </div>
+                
+                <div class="challenge-box">
+                    <h3>💥 Fundamental MBRL Challenges</h3>
+                    <ul class="challenge-list">
+                        <li><strong>Epistemic Uncertainty:</strong> Limited data causes model errors</li>
+                        <li><strong>Aleatoric Uncertainty:</strong> Inherent environment stochasticity</li>
+                        <li><strong>Value Function Gap:</strong> MPC lacks terminal value estimate</li>
+                        <li><strong>Local Optima:</strong> Gradient-based planning gets stuck</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="challenge-box">
+                <h3>📌 Why Model-Free Methods Outperform</h3>
+                <p>PPO, SAC, and other model-free algorithms achieved high-quality policies using default hyperparameters on all tested benchmarks (including hardest ones like Humanoid). Model-free methods don't rely on long-horizon prediction accuracy and have better exploration mechanisms.</p>
+            </div>
+            
+            <div class="conclusion-box">
+                <h3>💡 Key Insight</h3>
+                <p><strong>Our MBRL results still outperformed prior work (Nagabandi et al.)</strong> on Hopper and Ant benchmarks, but this is not "inspiring" - basic MBRL is inherently difficult and doesn't scale well to complex control tasks without advanced techniques.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Future Directions -->
+        <div class="slide slide5">
+            <h1>Future Directions & Key Takeaways</h1>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Approach</th>
+                    <th>Method</th>
+                    <th>Key Innovation</th>
+                </tr>
+                <tr>
+                    <td><strong>MBPO</strong></td>
+                    <td>Model-based + Model-free Hybrid</td>
+                    <td>Train model-free on short simulated rollouts</td>
+                </tr>
+                <tr>
+                    <td><strong>TD-MPC</strong></td>
+                    <td>Latent Dynamics + Value Function</td>
+                    <td>Learn representation & Q-function jointly with MPC</td>
+                </tr>
+                <tr>
+                    <td><strong>DreamerV3</strong></td>
+                    <td>Latent World Model + Actor-Critic</td>
+                    <td>Replace MPC with learned actor-critic in latent space</td>
+                </tr>
+            </table>
+            
+            <div class="approach-recommendation">
+                <h3>🎯 Recommended Approaches for Future Work</h3>
+                
+                <div class="recommendation-item">
+                    <strong>Hybrid Methods:</strong> Combining model-based and model-free learning (TD-MPC, MBPO, DreamerV3) show much better sample efficiency and performance on hard tasks
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>Terminal Value Functions:</strong> Adding learned Q-functions to MPC can mitigate horizon limitations
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>Latent Dynamics:</strong> Learning in learned latent representations reduces dimensionality and learning burden
+                </div>
+                
+                <div class="recommendation-item">
+                    <strong>Curriculum Learning:</strong> Gradually increasing task difficulty may help but requires careful tuning
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter"><span id="currentSlide">1</span> / 5</span>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
